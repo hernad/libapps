@@ -804,6 +804,7 @@ hterm.Terminal.prototype.getZoomFactor = function() {
  */
 hterm.Terminal.prototype.setWindowTitle = function(title) {
   window.document.title = title;
+  this.onSetWindowTitle(title);
 };
 
 /**
@@ -2753,6 +2754,9 @@ hterm.Terminal.prototype.onVTKeystroke = function(string) {
     this.scrollPort_.scrollRowToBottom(this.getRowCount());
 
   this.io.onVTKeystroke(this.keyboard.encode(string));
+};
+
+hterm.Terminal.prototype.onSetWindowTitle = function(string) {
 };
 
 /**
